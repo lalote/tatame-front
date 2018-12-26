@@ -36,12 +36,12 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
 
       <v-toolbar-title>
-        <!--         <router-link to="/" tag="span" style="cursor: pointer" class="hidden-xs-and-down">
-        -->
-        <v-layout row align-center justify-start style="min-width:200px">
-          <img src="@/assets/tatame-logo.png" style="width:38px;height:38px;margin-right:4px;" >
-          <span class="hidden-xs-only">TATAMELIFE</span>
-        </v-layout>
+        <router-link to="/" tag="span" style="cursor: pointer" class="hidden-xs-and-down">
+          <v-layout row align-center justify-start style="min-width:200px">
+            <img src="@/assets/tatame-logo.png" style="width:38px;height:38px;margin-right:4px;">
+            <span>TATAMELIFE</span>
+          </v-layout>
+        </router-link>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -52,7 +52,7 @@
           @click="$vuetify.goTo(item.selector, {duration: 500, offset: -55, easing: 'easeInOutCubic'})"
           flat
         >
-          <v-icon left dark class="hidden-xs-only hidden-md-only">{{item.icon}}</v-icon>
+          <v-icon left dark class="hidden-xs-only">{{item.icon}}</v-icon>
           <span class="hidden-sm-and-down">{{item.title}}</span>
         </v-btn>
       </v-toolbar-items>
@@ -72,6 +72,11 @@ export default {
         { title: "Contacto", icon: "contact_mail", selector: "#contacto" }
       ]
     };
+  },
+  methods: {
+    goToHome() {
+      router.push("/");
+    }
   }
 };
 </script>
