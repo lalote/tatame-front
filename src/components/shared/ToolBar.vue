@@ -47,7 +47,19 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-for="item in items" :key="item.title">
-        <v-btn
+
+<!--         <router-link v-if="item.esEnlace" to=item.link class="btn btn-logout btn-sm">{{item.title}}</router-link>
+ -->
+        <v-btn v-if="item.esEnlace" 
+          block
+          to="/fighters"
+          flat
+        >
+          <v-icon left dark class="hidden-xs-only">{{item.icon}}</v-icon>
+          <span class="hidden-sm-and-down">{{item.title}}</span>
+        </v-btn>
+        
+        <v-btn v-if="!item.esEnlace" 
           block
           @click="$vuetify.goTo(item.selector, {duration: 500, offset: -55, easing: 'easeInOutCubic'})"
           flat
@@ -69,7 +81,8 @@ export default {
         { title: "¿Que es?", icon: "explore", selector: "#quees" },
         { title: "Clases", icon: "room_service", selector: "#clases" },
         { title: "Precios", icon: "monetization_on", selector: "#precios" },
-        { title: "Contacto", icon: "contact_mail", selector: "#contacto" }
+        { title: "Contacto", icon: "contact_mail", selector: "#contacto" },
+        { title: "Luchadores", icon: "contact_mail", link: "/fighters", esEnlace : true }
       ]
     };
   },

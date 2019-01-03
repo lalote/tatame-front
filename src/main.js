@@ -10,6 +10,8 @@ Vue.use(VueYouTubeEmbed)
 
 Vue.config.productionTip = false
 
+
+
 new Vue({
   router,
   store,
