@@ -2,6 +2,9 @@
   <v-layout>
     <!-- PRECIOS -->
     <v-layout row wrap style="padding:30px" color="transparent" justify-center>
+      <div class="text-xs-center">
+          <v-pagination v-model="bla" :length="6">
+
       <v-flex xs12 sm6 md4 style="padding:20px" v-for="item in info" :key="item.url_photo">
         <v-card
           hover
@@ -23,6 +26,8 @@
           </v-card-title>
 
           <v-card-media class="headline font-weight-bold">
+              
+
             <router-link :to="`/fighter/${item.id}`" class="dropdown-item">
               <v-img lazy-src :src="item.url_photo"></v-img>
             </router-link>
@@ -81,6 +86,8 @@
           </v-layout>
         </v-card>-->
       </v-flex>
+    </v-pagination>
+  </div>
     </v-layout>
 
 

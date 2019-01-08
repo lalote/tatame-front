@@ -45,7 +45,9 @@ export default {
   },
   data() {
     return {
-      btnTopVisible: false
+      btnTopVisible: false,
+      colorBGToolBar: '',
+      
     };
   },
   mounted() {

@@ -4,9 +4,9 @@
       <v-layout
         row
         wrap
-        style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
-      >
-        <!--  flex general seccion nosotros padding: 30px !important;-->
+        style="background-color: this.$store.getters.getNavBarBGColor !important;" >
+<!--       style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
+ -->        <!--  flex general seccion nosotros padding: 30px !important;-->
         <!--   <div class="text-xs-center" style="border:4px solid green;" >
         -->
         <!--  flex vcard texto-->
@@ -79,10 +79,10 @@
       </v-layout>
 
       <!--  QUE ES?? -->
-      <v-layout row wrap style="padding:3px;border:0px solid black;">
+      <v-layout row wrap style="padding:3px;border:0px solid black;background-color: #B7B8B6 !important;">
         <v-flex>
           <div id="quees"></div>
-          <v-card style="padding:3px;border:0px solid black;">
+          <v-card flat style="padding:3px">
             <v-layout row wrap>
               <v-layout>
                 <v-flex xs12 sm6 offset-sm3>
@@ -124,7 +124,7 @@
               >
                 <div id="quees"></div>
 
-                <v-card flat color>
+                <v-card flat >
                   <!--  flex vcard texto H1 y H3-->
                   <v-flex xs12>
                     <br>

@@ -32,7 +32,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar fixed clipped-left flat height="50px" class="light-green lighten-3">
+    <v-toolbar fixed clipped-left flat height="50px" v-bind:style="getNavBarBGColor">
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
 
       <v-toolbar-title>
@@ -47,19 +47,15 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-for="item in items" :key="item.title">
-
-<!--         <router-link v-if="item.esEnlace" to=item.link class="btn btn-logout btn-sm">{{item.title}}</router-link>
- -->
-        <v-btn v-if="item.esEnlace" 
-          block
-          to="/fighters"
-          flat
-        >
+        <!--         <router-link v-if="item.esEnlace" to=item.link class="btn btn-logout btn-sm">{{item.title}}</router-link>
+        -->
+        <v-btn v-if="item.esEnlace" block to="/fighters" flat>
           <v-icon left dark class="hidden-xs-only">{{item.icon}}</v-icon>
           <span class="hidden-sm-and-down">{{item.title}}</span>
         </v-btn>
-        
-        <v-btn v-if="!item.esEnlace" 
+
+        <v-btn
+          v-if="!item.esEnlace"
           block
           @click="$vuetify.goTo(item.selector, {duration: 500, offset: -55, easing: 'easeInOutCubic'})"
           flat
@@ -73,7 +69,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+
 export default {
+
   data() {
     return {
       drawer: null,
@@ -82,7 +82,12 @@ export default {
         { title: "Clases", icon: "room_service", selector: "#clases" },
         { title: "Precios", icon: "monetization_on", selector: "#precios" },
         { title: "Contacto", icon: "contact_mail", selector: "#contacto" },
-        { title: "Luchadores", icon: "contact_mail", link: "/fighters", esEnlace : true }
+        {
+          title: "Luchadores",
+          icon: "contact_mail",
+          link: "/fighters",
+          esEnlace: true
+        }
       ]
     };
   },
@@ -90,7 +95,17 @@ export default {
     goToHome() {
       router.push("/");
     }
+  },
+  computed: {
+ ...mapGetters({
+    // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+    getNavBarBGColor: "getNavBarBGColor"
+  })
   }
+
+
+
+ 
 };
 </script>
 
