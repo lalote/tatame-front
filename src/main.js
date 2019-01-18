@@ -3,18 +3,20 @@ import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueClazyLoad from 'vue-clazy-load';
+import InfiniteLoading from 'vue-infinite-loading';
 
-import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(InfiniteLoading, { /* options */ });
 
-Vue.use(VueYouTubeEmbed)
 
-Vue.config.productionTip = false
+Vue.use(VueClazyLoad);
+
+//Vue.config.productionTip = false
 
 
 
 new Vue({
   router,
   store,
-  VueYouTubeEmbed,
   render: h => h(App)
 }).$mount('#app')

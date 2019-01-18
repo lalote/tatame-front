@@ -1,27 +1,19 @@
 <template>
+  <!--  Either of these options will work:
+<div class="card" :style="{ 'background-color': school.color }"> 
+  <div class="card" :style="{ backgroundColor: school.color }">-->
   <v-container pa-0 ma-0 fluid>
-    <section>
-      <v-layout
-        row
-        wrap
-        style="background-color: this.$store.getters.getNavBarBGColor !important;" >
-<!--       style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
- -->        <!--  flex general seccion nosotros padding: 30px !important;-->
+<!--     <section> -->
+      <v-layout row wrap v-bind:style="getLandingSeccion_1_BGColor">
+        <!--       style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
+        -->
+        <!--  flex general seccion nosotros padding: 30px !important;-->
         <!--   <div class="text-xs-center" style="border:4px solid green;" >
         -->
         <!--  flex vcard texto-->
-        <v-flex
-          row
-          wrap
-          xs12
-          sm6
-          class="text-xs-center"
-          style="padding:20px;height:100%;width:100%;padding:3px;border:0px solid black;"
-        >
-          <v-card
-            flat
-            style="padding:3px;border:4px solid black;min-height:300px;"
-            color="transparent"
+        <v-flex row wrap xs12 sm6 class="text-xs-center"
+          style="padding:20px;height:100%;width:100%;padding:3px;border:0px solid black;">
+          <v-card flat style="padding:3px;border:4px solid black;min-height:300px;"  color="transparent"
           >
             <!--  flex vcard texto H1 y H3-->
             <v-layout row wrap justify-space-between>
@@ -56,8 +48,7 @@
           style="padding:3px;border:0px solid black;min-height:300px;padding:20px;"
           class="text-xs-center"
         >
-          <!--           <youtube :video-id="videoId" :player-vars="{ autoplay: 1 }"></youtube>
-          -->
+          <!-- <youtube :video-id="videoId" :player-vars="{ autoplay: 1 }"></youtube> -->
           <iframe
             src="https://player.vimeo.com/video/233844936"
             width="100%"
@@ -68,7 +59,7 @@
             allowfullscreen
           ></iframe>
 
-          <!--             <iframe
+          <!--                       <iframe
               style="min-height:200px;height:100%;min-width:480px;width:100%;"
               src="https://www.youtube.com/embed/LUmgrve1sZc?controls=0"
               frameborder="0"
@@ -79,14 +70,22 @@
       </v-layout>
 
       <!--  QUE ES?? -->
-      <v-layout row wrap style="padding:3px;border:0px solid black;background-color: #B7B8B6 !important;">
+      <v-layout
+        row
+        wrap
+        style="padding:3px;border:0px solid black;"
+        v-bind:style="getLandingSeccion_2_BGColor"
+      >
         <v-flex>
           <div id="quees"></div>
-          <v-card flat style="padding:3px">
+          <v-card flat style="padding:3px" v-bind:style="getLandingSeccion_2_BGColor">
             <v-layout row wrap>
               <v-layout>
                 <v-flex xs12 sm6 offset-sm3>
-                  <v-card style="padding:3px;border:0px solid black;">
+                  <v-card
+                    style="padding:3px;border:0px solid black;"
+                    v-bind:style="getLandingSeccion_2_BGColor"
+                  >
                     <v-layout row wrap>
                       <v-flex v-for="n in 9" :key="n" xs4 d-flex>
                         <v-card flat tile class="d-flex">
@@ -124,7 +123,7 @@
               >
                 <div id="quees"></div>
 
-                <v-card flat >
+                <v-card flat v-bind:style="getLandingSeccion_2_BGColor">
                   <!--  flex vcard texto H1 y H3-->
                   <v-flex xs12>
                     <br>
@@ -142,85 +141,62 @@
         </v-flex>
       </v-layout>
 
-            <!--     SUSCRIPCION -->
-      <v-layout column wrap style="padding:10px;border:0px solid gray;" class="text-xs-center">
 
+
+      <!--     SUSCRIPCION -->
+      <v-container fluid v-if="seccion1" class="fade-transition">
+      <v-layout
+        column
+        wrap
+        style="padding:10px;border:0px solid gray;"
+        class="text-xs-center"
+        v-bind:style="getLandingSeccion_3_BGColor"
+      >
         <v-flex column xs12 style="border:0px solid gray;">
           <v-layout style="border:0px solid gray;" justify-center align-center>
             <v-flex xs12 align-self-center class="text-xs-center">
               <h2 class="display-3">Newsletter</h2>
-              <h4 class="display-6">Suscribete para estár informado de nuevos servicios, promociones y más !!</h4>
+              <h4
+                class="display-6"
+              >Suscribete para estár informado de nuevos servicios, promociones y más !!</h4>
             </v-flex>
           </v-layout>
         </v-flex>
 
+        <v-layout>
+          <v-flex shrink xs12 sm2 md4></v-flex>
 
-          <v-layout row wrap pa-1 justify-space-between style="border:0px solid gray;">
+          <v-flex grow xs12 sm8 md4>
+            <v-layout row wrap>
+              <v-flex xs12 pa-1 style="border:0px solid gray;" class="text-xs-center">
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  label="E-mail"
+                  outline
+                  required
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 pa-1 style="border:0px solid gray;" class="text-xs-center">
+                <v-btn @click="submit">Suscribirme!</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-flex>
 
-            <v-flex  xs4 style="border:0px solid gray;">
-            </v-flex>
-
-            <v-flex xs4 grow   style="border:0px solid gray;width:100%;margin:auto;">
-              <v-layout row wrap pa-1 justify-space-around fill-height style="border:0px solid gray;width:100%;">
-                
-                        <v-flex order-xs1 order-sm1 column xs6 pa-2 class="text-xs-left " style="border:0px solid gray" >
-                          <v-text-field  v-model="email" :error-messages="emailErrors" label="E-mail" outline required @input="$v.email.$touch()"  @blur="$v.email.$touch()" ></v-text-field>
-                        </v-flex>
-
-                        <v-flex order-xs2 order-sm2 column xs6 pa-2  class="text-xs-center text-md-right " style="border:0px solid gray;" >
-                          <v-btn  @click="submit" > Suscribirme!  </v-btn>
-                        </v-flex>
-
-
-              </v-layout>
-            </v-flex>
-
-             <v-flex  xs4 style="border:0px solid gray">
-            </v-flex>
-
-          </v-layout>
-
+          <v-flex shrink xs12 sm2 md4></v-flex>
+        </v-layout>
       </v-layout>
-
-      <!--     SUSCRIPCION -->
-<!--       <v-layout column wrap style="padding:10px;border:0px solid gray;" class="text-xs-center">
-
-        <v-flex column xs12 align-self-center>
-          <v-layout style="border:0px solid gray;" justify-center align-center>
-            <v-flex xs12 align-self-center class="text-xs-center">
-              <h2 class="display-3">Newsletter</h2>
-              <h4 class="display-6">Suscribete para estár informado de nuevos servicios, promociones y más !!</h4>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-
-        <v-flex xs12  pa-1  style="border:1px solid gray;min-width:300px;">
-          <v-layout row wrap pa-1 justify-center style="border:1px solid gray;">
-            <v-flex
-              row
-              xs6              
-              pa-2              
-              align-self-center
-              class="text-xs-center text-md-right"
-              style="border:1px solid gray;min-width:300px;max-width:300px;" >
-              <v-btn >Suscribirme!</v-btn>
-            </v-flex>
-            <v-flex
-              row
-              xs6              
-              pa-2
-              align-self-center
-              style="border:1px solid gray;min-width:300px;max-width:400px;" >
-              <v-text-field label="Ingresa tu mail" placeholder="Mail" outline full-width></v-text-field>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-      </v-layout> -->
-
-      
-
+</v-container>
       <!-- CLASES  -->
-      <v-layout row wrap style="padding:30px" color="transparent" justify-start>
+      <v-layout    v-if="seccion2" 
+        row
+        wrap
+        style="padding:30px"
+        color="transparent"
+        justify-start
+        v-bind:style="getLandingSeccion_4_BGColor">
         <h1 class="display-2 font-weight-medium">PRECIOS</h1>
 
         <v-layout wrap>
@@ -263,7 +239,7 @@
       </v-layout>
 
       <v-layout row wrap style="padding:3px" color="transparent">
-        <v-flex row wrap xs12 sm12 class="text-xs-center">
+        <v-flex row wrap xs12 sm12 class="text-xs-center" v-if="seccion4">
           <div id="nosotros"></div>
 
           <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
@@ -288,24 +264,19 @@
               </v-container>
             </v-card>
           </v-parallax>
-
-          <!--           <v-card flat style="padding:3px;border:0px solid black;" color>
-
-            <v-flex xs12>
-              <br>
-              <h1 class="display-2 font-weight-bold">¿Clases? 1</h1>
-              <v-card-title>
-                <h3 class="title font-weight-thin">
-                  <span class="font-weight-bold">JIUJITSU</span> Lorem ipsum dolor sit cuchuflí barquillo bacán jote gamba listeilor po cahuín, luca melón con vino pichanga coscacho ni ahí peinar la muñeca chuchada al chancho achoclonar. Chorrocientos pituto ubicatex huevo duro bolsero cachureo el hoyo del queque en cana huevón el año del loly hacerla corta impeque de miedo quilterry la raja longi ñecla. Hilo curado rayuela carrete quina guagua lorea piola ni ahí.
-                </h3>
-              </v-card-title>
-            </v-flex>
-          </v-card>-->
         </v-flex>
       </v-layout>
 
       <!-- PRECIOS -->
-      <v-layout row wrap style="padding:30px" color="transparent" justify-center>
+      <v-layout
+      v-if="seccion3"
+        row
+        wrap
+        style="padding:30px"
+        color="transparent"
+        justify-center
+        v-bind:style="getLandingSeccion_5_BGColor"
+      >
         <v-flex xs12 sm6 md3 style="padding:20px">
           <v-card-title class="text-xs-center">
             <v-layout align-center justify-center>
@@ -432,7 +403,7 @@
       </v-layout>
 
       <!-- CLASES 2-->
-      <v-layout row wrap>
+<!--       <v-layout row wrap>
         <v-flex>
           <h1 id="clases"></h1>
 
@@ -454,21 +425,39 @@
             </v-timeline-item>
           </v-timeline>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
 
       <!-- PRECIOS -->
-    </section>
-  </v-container>
+<!--     </section> -->
+
+      <infinite-loading @infinite="infiniteHandler">
+        <!-- The no-more message will has no default styles -->
+        <div slot="no-more">No more message</div>
+      </infinite-loading>      
+
+
+  </v-container>  
 </template>
 
 <script>
+
+import { mapGetters } from "vuex";
+
+var count = 0;
+
 export default {
-  data: {
-    valid: true,
+  data() {
+    return {
+      seccion1: false,
+      seccion2: false,
+      seccion3: false,
+      seccion4: false,
+      emailErrors: [],
+      email: ''
+    };
   },
   components: {
     name: "Home",
-    videoId: "HjxYvcdpVnU",
     items: [
       {
         src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
@@ -485,7 +474,57 @@ export default {
     ],
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
   },
-  methods: {}
+  methods: {
+    infiniteHandler($state) {
+      console.log('scrolll ');
+        if (!this.seccion1) {
+          this.seccion1 = true;
+          $state.loaded();
+        }else if (!this.seccion2) {
+           this.seccion2 = true;
+           $state.loaded();
+        }else if (!this.seccion3) {
+           this.seccion3 = true;
+           $state.loaded();
+        }else if (!this.seccion4) {
+           this.seccion4 = true;
+           $state.loaded();
+        }else if (!this.seccion5) {
+           this.seccion5 = true;
+           $state.complete();
+        }
+    },
+    loadMore($state) {
+
+    },
+    submit: function() {
+
+    }
+  
+  },
+  /*  EJEMPLO CON AXIOS
+  
+  loadMore() {
+      this.busy = true;   
+      axios.get("https://jsonplaceholder.typicode.com/photos").then(res => {
+        const append = res.data.slice(this.photos.length,this.photos.length + this.limit )         
+        this.photos = this.photos.concat(append);
+        this.busy = false;
+      }).catch( (err) => {
+        this.busy = false;
+      })
+   
+    } */
+  computed: {
+    ...mapGetters({
+      // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+      getLandingSeccion_1_BGColor: "getLandingSeccion_1_BGColor",
+      getLandingSeccion_2_BGColor: "getLandingSeccion_2_BGColor",
+      getLandingSeccion_3_BGColor: "getLandingSeccion_3_BGColor",
+      getLandingSeccion_4_BGColor: "getLandingSeccion_4_BGColor",
+      getLandingSeccion_5_BGColor: "getLandingSeccion_5_BGColor"
+    })
+  }
 };
 </script>
 

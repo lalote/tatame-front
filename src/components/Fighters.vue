@@ -2,8 +2,7 @@
   <v-layout>
     <!-- PRECIOS -->
     <v-layout row wrap style="padding:30px" color="transparent" justify-center>
-      <div class="text-xs-center">
-          <v-pagination v-model="bla" :length="6">
+
 
       <v-flex xs12 sm6 md4 style="padding:20px" v-for="item in info" :key="item.url_photo">
         <v-card
@@ -28,9 +27,23 @@
           <v-card-media class="headline font-weight-bold">
               
 
+          <clazy-load :src=item.url_photo>
+            <transition name="fade">
+           <!--  <img :src=item.url_photo></img> -->
+
+
             <router-link :to="`/fighter/${item.id}`" class="dropdown-item">
-              <v-img lazy-src :src="item.url_photo"></v-img>
+              <v-img :src=item.url_photo></v-img>
+
             </router-link>
+
+            </transition>
+            <div class="preloader" slot="placeholder">
+              Cargando Imagen ...
+            </div>
+          </clazy-load>              
+
+
           </v-card-media>
 
           <v-card-actions>
@@ -86,8 +99,7 @@
           </v-layout>
         </v-card>-->
       </v-flex>
-    </v-pagination>
-  </div>
+
     </v-layout>
 
 
@@ -110,7 +122,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:3000/fighters.json")
+      .get("http://127.0.0.1:3000/api/fighters.json")
       .then(response => {
         this.info = response.data;
       })
@@ -122,3 +134,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -32,7 +32,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar fixed clipped-left flat height="50px" v-bind:style="getNavBarBGColor">
+    <v-toolbar fixed clipped-left flat height="50px"  v-bind:style="getNavBarBGColor">
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
 
       <v-toolbar-title>
