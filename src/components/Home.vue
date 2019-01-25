@@ -3,148 +3,149 @@
 <div class="card" :style="{ 'background-color': school.color }"> 
   <div class="card" :style="{ backgroundColor: school.color }">-->
   <v-container pa-0 ma-0 fluid>
-<!--     <section> -->
-      <v-layout row wrap v-bind:style="getLandingSeccion_1_BGColor">
-        <!--       style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
-        -->
-        <!--  flex general seccion nosotros padding: 30px !important;-->
-        <!--   <div class="text-xs-center" style="border:4px solid green;" >
-        -->
-        <!--  flex vcard texto-->
-        <v-flex row wrap xs12 sm6 class="text-xs-center"
-          style="padding:20px;height:100%;width:100%;padding:3px;border:0px solid black;">
-          <v-card flat style="padding:3px;border:4px solid black;min-height:300px;"  color="transparent"
-          >
-            <!--  flex vcard texto H1 y H3-->
-            <v-layout row wrap justify-space-between>
-              <v-flex xs12>
-                <br>
-                <h1 class="display-2 font-weight-bold">Mejora tu vida 🥋</h1>
-                <v-card-title>
-                  <h3 class="title font-weight-thin">
-                    <span class="font-weight-bold">JIUJITSU</span>, Arte marcial, deporte de combate y sistema de defensa personal de desarrollo brasileño de origen japonés.
-                  </h3>
-                </v-card-title>
-              </v-flex>
-            </v-layout>
-
-            <!--  flex vcard BOTONES -->
-            <v-layout row wrap>
-              <!-- <div class="text-xs-center d-flex"> -->
-              <v-flex xs12 sm12 md6 block>
-                <v-btn large round color style="font-size:20px;">Aprende</v-btn>
-              </v-flex>
-              <v-flex xs12 sm12 md6 block>
-                <v-btn large round color="primary " style="font-size:20px;">Conoce</v-btn>
-              </v-flex>
-            </v-layout>
-          </v-card>
-        </v-flex>
-
-        <!--  flex video-->
-        <v-flex
-          xs12
-          sm6
-          style="padding:3px;border:0px solid black;min-height:300px;padding:20px;"
-          class="text-xs-center"
+    <!--     <section> -->
+    <v-layout row wrap v-bind:style="getLandingSeccion_1_BGColor">
+      <!--       style="background: linear-gradient(320deg, #fff 20%, rgba(197, 225, 165, 1) 40%);"
+      -->
+      <!--  flex general seccion nosotros padding: 30px !important;-->
+      <!--   <div class="text-xs-center" style="border:4px solid green;" >
+      -->
+      <!--  flex vcard texto-->
+      <v-flex
+        row
+        wrap
+        xs12
+        sm6
+        class="text-xs-center"
+        style="padding:20px;height:100%;width:100%;padding:3px;border:0px solid black;"
+      >
+        <v-card
+          flat
+          style="padding:3px;border:4px solid black;min-height:300px;"
+          color="transparent"
         >
-          <!-- <youtube :video-id="videoId" :player-vars="{ autoplay: 1 }"></youtube> -->
-          <iframe
-            src="https://player.vimeo.com/video/233844936"
-            width="100%"
-            height="100%"
-            frameborder="0"
-            webkitallowfullscreen
-            mozallowfullscreen
-            allowfullscreen
-          ></iframe>
+          <!--  flex vcard texto H1 y H3-->
+          <v-layout row wrap justify-space-between>
+            <v-flex xs12>
+              <br>
+              <h1 class="display-2 font-weight-bold">Mejora tu vida 🥋</h1>
+              <v-card-title>
+                <h3 class="title font-weight-thin">
+                  <span class="font-weight-bold">JIUJITSU</span>, Arte marcial, deporte de combate y sistema de defensa personal de desarrollo brasileño de origen japonés.
+                </h3>
+              </v-card-title>
+            </v-flex>
+          </v-layout>
 
-          <!--                       <iframe
+          <!--  flex vcard BOTONES -->
+          <v-layout row wrap>
+            <!-- <div class="text-xs-center d-flex"> -->
+            <v-flex xs12 sm12 md6 block>
+              <v-btn large round color style="font-size:20px;">Aprende</v-btn>
+            </v-flex>
+            <v-flex xs12 sm12 md6 block>
+              <v-btn large round color="primary " style="font-size:20px;">Conoce</v-btn>
+            </v-flex>
+          </v-layout>
+        </v-card>
+      </v-flex>
+
+      <!--  flex video-->
+      <v-flex
+        xs12
+        sm6
+        style="padding:3px;border:0px solid black;min-height:300px;padding:20px;"
+        class="text-xs-center"
+      >
+        <!-- <youtube :video-id="videoId" :player-vars="{ autoplay: 1 }"></youtube> -->
+        <iframe
+          src="https://player.vimeo.com/video/233844936"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        ></iframe>
+
+        <!--                       <iframe
               style="min-height:200px;height:100%;min-width:480px;width:100%;"
               src="https://www.youtube.com/embed/LUmgrve1sZc?controls=0"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-          ></iframe>-->
-        </v-flex>
-      </v-layout>
+        ></iframe>-->
+      </v-flex>
+    </v-layout>
 
-      <!--  QUE ES?? -->
-      <v-layout
-        row
-        wrap
-        style="padding:3px;border:0px solid black;"
-        v-bind:style="getLandingSeccion_2_BGColor"
-      >
-        <v-flex>
-          <div id="quees"></div>
-          <v-card flat style="padding:3px" v-bind:style="getLandingSeccion_2_BGColor">
-            <v-layout row wrap>
-              <v-layout>
-                <v-flex xs12 sm6 offset-sm3>
-                  <v-card
-                    style="padding:3px;border:0px solid black;"
-                    v-bind:style="getLandingSeccion_2_BGColor"
-                  >
-                    <v-layout row wrap>
-                      <v-flex v-for="n in 9" :key="n" xs4 d-flex>
-                        <v-card flat tile class="d-flex">
-                          <v-img
-                            :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                            :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                            aspect-ratio="1"
-                            class="grey lighten-2"
-                          >
-                            <v-layout
-                              slot="placeholder"
-                              fill-height
-                              align-center
-                              justify-center
-                              ma-0
-                            >
-                              <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                            </v-layout>
-                          </v-img>
-                        </v-card>
-                      </v-flex>
-                    </v-layout>
-                  </v-card>
-                </v-flex>
-              </v-layout>
-              <!-- nuevo v-flex -->
-              <!--  flex vcard QUE ES?? texto-->
-              <v-flex
-                row
-                wrap
-                xs12
-                sm6
-                class="text-xs-center"
-                style="padding:20px;height:100%;width:100%;"
-              >
-                <div id="quees"></div>
-
-                <v-card flat v-bind:style="getLandingSeccion_2_BGColor">
-                  <!--  flex vcard texto H1 y H3-->
-                  <v-flex xs12>
-                    <br>
-                    <h1 class="display-2 font-weight-bold">¿Que es?</h1>
-                    <v-card-title>
-                      <h3 class="title font-weight-thin">
-                        <span class="font-weight-bold">JIUJITSU</span>Lorem ipsum dolor sit cuchuflí barquillo bacán jote gamba listeilor po cahuín, luca melón con vino pichanga coscacho ni ahí peinar la muñeca chuchada al chancho achoclonar. Chorrocientos pituto ubicatex huevo duro bolsero cachureo el hoyo del queque en cana huevón el año del loly hacerla corta impeque de miedo quilterry la raja longi ñecla. Hilo curado rayuela carrete quina guagua lorea piola ni ahí.
-                      </h3>
-                    </v-card-title>
-                  </v-flex>
+    <!--  QUE ES?? -->
+    <v-layout
+      row
+      wrap
+      style="padding:3px;border:0px solid black;"
+      v-bind:style="getLandingSeccion_2_BGColor"
+    >
+      <v-flex>
+        <div id="quees"></div>
+        <v-card flat style="padding:3px" v-bind:style="getLandingSeccion_2_BGColor">
+          <v-layout row wrap>
+            <v-layout>
+              <v-flex xs12 sm6 offset-sm3>
+                <v-card
+                  style="padding:3px;border:0px solid black;"
+                  v-bind:style="getLandingSeccion_2_BGColor"
+                >
+                  <v-layout row wrap>
+                    <v-flex v-for="n in 9" :key="n" xs4 d-flex>
+                      <v-card flat tile class="d-flex">
+                        <v-img
+                          :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                          :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                          aspect-ratio="1"
+                          class="grey lighten-2"
+                        >
+                          <v-layout slot="placeholder" fill-height align-center justify-center ma-0>
+                            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                          </v-layout>
+                        </v-img>
+                      </v-card>
+                    </v-flex>
+                  </v-layout>
                 </v-card>
               </v-flex>
             </v-layout>
-          </v-card>
-        </v-flex>
-      </v-layout>
+            <!-- nuevo v-flex -->
+            <!--  flex vcard QUE ES?? texto-->
+            <v-flex
+              row
+              wrap
+              xs12
+              sm6
+              class="text-xs-center"
+              style="padding:20px;height:100%;width:100%;"
+            >
+              <div id="quees"></div>
 
+              <v-card flat v-bind:style="getLandingSeccion_2_BGColor">
+                <!--  flex vcard texto H1 y H3-->
+                <v-flex xs12>
+                  <br>
+                  <h1 class="display-2 font-weight-bold">¿Que es?</h1>
+                  <v-card-title>
+                    <h3 class="title font-weight-thin">
+                      <span class="font-weight-bold">JIUJITSU</span>Lorem ipsum dolor sit cuchuflí barquillo bacán jote gamba listeilor po cahuín, luca melón con vino pichanga coscacho ni ahí peinar la muñeca chuchada al chancho achoclonar. Chorrocientos pituto ubicatex huevo duro bolsero cachureo el hoyo del queque en cana huevón el año del loly hacerla corta impeque de miedo quilterry la raja longi ñecla. Hilo curado rayuela carrete quina guagua lorea piola ni ahí.
+                    </h3>
+                  </v-card-title>
+                </v-flex>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-card>
+      </v-flex>
+    </v-layout>
 
-
-      <!--     SUSCRIPCION -->
-      <v-container fluid v-if="seccion1" class="fade-transition">
+    <!--     SUSCRIPCION -->
+    <v-container fluid v-if="seccion1" class="fade-transition">
       <v-layout
         column
         wrap
@@ -188,18 +189,22 @@
           <v-flex shrink xs12 sm2 md4></v-flex>
         </v-layout>
       </v-layout>
-</v-container>
-      <!-- CLASES  -->
-      <v-layout    v-if="seccion2" 
-        row
-        wrap
-        style="padding:30px"
-        color="transparent"
-        justify-start
-        v-bind:style="getLandingSeccion_4_BGColor">
-        <h1 class="display-2 font-weight-medium">PRECIOS</h1>
+    </v-container>
 
-        <v-layout wrap>
+    <!-- SERVICIOS  -->
+    <v-layout
+      v-if="seccion2"
+      row
+      wrap
+      style="padding:30px"
+      color="transparent"
+      justify-start
+      v-bind:style="getLandingSeccion_4_BGColor"
+    >
+      <h1 class="display-2 font-weight-medium">SERVICIOS</h1>
+
+      <v-layout wrap>
+        <transition name="fade">
           <v-flex xs12 sm4 style="padding:20px">
             <v-card-title class="text-xs-center">
               <v-layout align-center justify-center>
@@ -213,7 +218,9 @@
               </v-layout>
             </v-card>
           </v-flex>
+        </transition>
 
+        <transition name="fade">
           <v-flex xs12 sm4 style="padding:20px">
             <v-card-title class="text-xs-center">
               <v-layout align-center justify-center>
@@ -224,7 +231,8 @@
               <p>Progressively build 2.0 manufactured products before go forward partnerships. Rapidiously matrix go forward initiatives without cross-platform potentialities. Enthusiastically matrix mission-critical paradigms whereas high-quality value.</p>
             </v-layout>
           </v-flex>
-
+        </transition>
+        <transition name="fade">
           <v-flex xs12 sm4 style="padding:20px">
             <v-card-title class="text-xs-center">
               <v-layout align-center justify-center>
@@ -235,11 +243,14 @@
               <p>Progressively build 2.0 manufactured products before go forward partnerships. Rapidiously matrix go forward initiatives without cross-platform potentialities. Enthusiastically matrix mission-critical paradigms whereas high-quality value.</p>
             </v-layout>
           </v-flex>
-        </v-layout>
+        </transition>
       </v-layout>
+    </v-layout>
 
+    <!-- NOSOTROS -->
+    <transition name="slide-fade">
       <v-layout row wrap style="padding:3px" color="transparent">
-        <v-flex row wrap xs12 sm12 class="text-xs-center" v-if="seccion4">
+        <v-flex row wrap xs12 sm12 class="text-xs-center" v-if="seccion3">
           <div id="nosotros"></div>
 
           <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
@@ -266,10 +277,16 @@
           </v-parallax>
         </v-flex>
       </v-layout>
+    </transition>
 
-      <!-- PRECIOS -->
+    <!-- PRECIOS -->
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated tada"
+      leave-active-class="animated bounceOutRight"
+    >
       <v-layout
-      v-if="seccion3"
+        v-if="seccion4"
         row
         wrap
         style="padding:30px"
@@ -401,9 +418,10 @@
           </v-card>
         </v-flex>
       </v-layout>
+    </transition>
 
-      <!-- CLASES 2-->
-<!--       <v-layout row wrap>
+    <!-- CLASES 2-->
+    <!--       <v-layout row wrap>
         <v-flex>
           <h1 id="clases"></h1>
 
@@ -425,23 +443,19 @@
             </v-timeline-item>
           </v-timeline>
         </v-flex>
-      </v-layout> -->
+    </v-layout>-->
+    <!-- PRECIOS -->
+    <!--     </section> -->
+    <!--     <infinite-loading @infinite="infiniteHandler" ></infinite-loading>
 
-      <!-- PRECIOS -->
-<!--     </section> -->
-
-      <infinite-loading @infinite="infiniteHandler">
-        <!-- The no-more message will has no default styles -->
-        <div slot="no-more">No more message</div>
-      </infinite-loading>      
-
-
-  </v-container>  
+    -->
+    <mugen-scroll :handler="getPosts" :should-handle="!loading"></mugen-scroll>
+  </v-container>
 </template>
 
 <script>
-
 import { mapGetters } from "vuex";
+import MugenScroll from "vue-mugen-scroll";
 
 var count = 0;
 
@@ -453,7 +467,8 @@ export default {
       seccion3: false,
       seccion4: false,
       emailErrors: [],
-      email: ''
+      email: "",
+      loading: false
     };
   },
   components: {
@@ -472,35 +487,25 @@ export default {
         src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
       }
     ],
-    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
+    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
+    MugenScroll
   },
   methods: {
-    infiniteHandler($state) {
-      console.log('scrolll ');
-        if (!this.seccion1) {
-          this.seccion1 = true;
-          $state.loaded();
-        }else if (!this.seccion2) {
-           this.seccion2 = true;
-           $state.loaded();
-        }else if (!this.seccion3) {
-           this.seccion3 = true;
-           $state.loaded();
-        }else if (!this.seccion4) {
-           this.seccion4 = true;
-           $state.loaded();
-        }else if (!this.seccion5) {
-           this.seccion5 = true;
-           $state.complete();
-        }
+    getPosts() {
+      console.log("scrolll ");
+      if (!this.seccion1) {
+        this.seccion1 = true;
+      } else if (!this.seccion2) {
+        this.seccion2 = true;
+      } else if (!this.seccion3) {
+        this.seccion3 = true;
+      } else if (!this.seccion4) {
+        this.seccion4 = true;
+      } else if (!this.seccion5) {
+        this.seccion5 = true;
+      }
     },
-    loadMore($state) {
-
-    },
-    submit: function() {
-
-    }
-  
+    submit() {}
   },
   /*  EJEMPLO CON AXIOS
   
@@ -541,6 +546,26 @@ export default {
 
 .nosBtn .v-btn {
   margin: 10px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 4s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
 

@@ -2,8 +2,6 @@
   <v-layout>
     <!-- PRECIOS -->
     <v-layout row wrap style="padding:30px" color="transparent" justify-center>
-
-
       <v-flex xs12 sm6 md4 style="padding:20px" v-for="item in info" :key="item.url_photo">
         <v-card
           hover
@@ -24,27 +22,17 @@
             </span>
           </v-card-title>
 
-          <v-card-media class="headline font-weight-bold">
-              
-
-          <clazy-load :src=item.url_photo>
-            <transition name="fade">
-           <!--  <img :src=item.url_photo></img> -->
-
-
-            <router-link :to="`/fighter/${item.id}`" class="dropdown-item">
-              <v-img :src=item.url_photo></v-img>
-
-            </router-link>
-
-            </transition>
-            <div class="preloader" slot="placeholder">
-              Cargando Imagen ...
-            </div>
-          </clazy-load>              
-
-
-          </v-card-media>
+          <v-responsive class="headline font-weight-bold">
+            <clazy-load :src="item.url_photo">
+              <transition name="fade">
+                <!--  <img :src=item.url_photo></img> -->
+                <router-link :to="`/fighter/${item.id}`" class="dropdown-item">
+                  <v-img :src="item.url_photo"></v-img>
+                </router-link>
+              </transition>
+              <div class="preloader" slot="placeholder">Cargando Imagen ...</div>
+            </clazy-load>
+          </v-responsive>
 
           <v-card-actions>
             <v-list-tile class="grow">
@@ -99,10 +87,13 @@
           </v-layout>
         </v-card>-->
       </v-flex>
-
     </v-layout>
+<infinite-loading>
+  <!-- The no-more slot will not be displayed -->
+  <span slot="no-more"></span>
+    <span slot="no-results"></span>
 
-
+</infinite-loading>
 
     <v-alert :value="existeError" type="error">{{errorMsg}}</v-alert>
   </v-layout>
@@ -120,6 +111,25 @@ export default {
       errorMsg: ""
     };
   },
+  methods: {
+    infiniteHandler($state) {
+      console.log("scrolll ");
+ $state.loaded();
+/*             axios.get(api, {
+              params: {
+                page: this.page,
+              },
+            }).then(({ data }) => {
+              if (data.hits.length) {
+                this.page += 1;
+                this.list.push(...data.hits);
+                $state.loaded();
+              } else {
+                $state.complete();
+              }
+            }); */
+    }
+  },
   mounted() {
     axios
       .get("http://127.0.0.1:3000/api/fighters.json")
@@ -136,7 +146,8 @@ export default {
 </script>
 
 <style>
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

@@ -7,6 +7,8 @@ import Home from './components/Home.vue'
 
 Vue.use(Router)
 
+
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -19,6 +21,9 @@ export default new Router({
     {
       path: '/fighters',
       name: 'fighters',
+      meta: {
+        showProgressBar: true
+      },
       //component: Fighters
       component: () => import(/* webpackChunkName: "Fighters" */ './components/Fighters.vue')
     },
